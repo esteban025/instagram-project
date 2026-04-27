@@ -1,1 +1,35 @@
 # INSTAGRAM (SOCIAL NETWORK) - PROJECT DJANGO
+
+### Objectivo del proyecto
+
+Poner en practica todo lo aprendido dentro del curso de Django, creacion de modelos, y vistas similares a la aplicacion, una aplicacion similar a la plataforma de Instagram.
+
+---
+
+## FASE 1 - Inicializacion y configuracion del proyecto
+
+1. Creacion del proyecto
+  - [✔] Creacion de README e inicializar con git.
+  - [✔] Creacion del entorno virtual. **py -m venv venv**
+  - [✔] Activar el entorno virtual. **venv\Scripts\activate**
+  - [✔] Instalacion de Django. **pip install django**
+  - [✔] Creacion del proyecto. **django-admin startproject config .**
+  - [✔] Creacion de la aplicacion. **python manage.py startapp instagram**
+  - [✔] Creamos los requerimeintos de este proyecto **pip freeze > requirements.txt**
+  - [✔] Creacion de la base de datos. **python manage.py migrate**
+  - [✔] Creacion del superusuario. **python manage.py createsuperuser**
+- [✔] Inicializacion del servidor. **python manage.py runserver**
+
+2. Configuracion del proyecto
+  - [✔] Configuracion de la aplicacion en settings.py
+  - [✔] Configuracion de la base de datos
+  - [✔] Configuracion del superusuario
+  - [✔] Configuracion del servidor
+  - [ ] Instalacion de extensiones adicionales **pip install django-extensions**
+
+3. Creacion de apps 
+  - [✔] Creacion de profiles, posts, notifications, etc.
+  - [✔] Configuracion de las apps en settings.py
+
+---
+
