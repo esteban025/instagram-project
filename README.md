@@ -36,9 +36,9 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
 ## Fase 2 - Creacion de modelos
 
 1. Creacion de modelos
-  - [ ] Creacion de modelos para profiles, posts, notifications, etc.
-  - [ ] Configuracion de los modelos en settings.py
-  - [ ] Creacion de las migraciones **python manage.py makemigrations**
-  - [ ] Aplicacion de las migraciones **python manage.py migrate**
+  - [✔] Creacion de modelos para profiles, posts.
+  - [✔] Configuracion de los modelos en settings.py
+  - [✔] Creacion de las migraciones **python manage.py makemigrations**
+  - [✔] Aplicacion de las migraciones **python manage.py migrate**
 
 
