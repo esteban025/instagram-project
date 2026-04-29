@@ -1,0 +1,27 @@
+{% load static %}
+
+<header class="p-4 w-full max-w-2xl mx-auto">
+  <div class="flex items-center justify-between">
+    <div class="new-post">
+      <span class="cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="logo">
+      <a href="/" class="pt-1 flex">
+        <img class="block w-24 h-auto" src="{% static 'icons/logo.svg' %}" alt="Logo de Instagram">
+      </a>
+    </div>
+    <div class="search">
+      <span class="cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+      </span>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+<main>
+  <section class="p-4 w-full max-w-2xl mx-auto space-y-5">
+    <article class="section-empty">
+      <span>Historias (Próximamente)</span>
+    </article>
+    <section class="">
+      <div class="flex w-full">
+        {% include 'includes/card_post.html'%}
+      </div>
+    </section>
+  </section>
+</main>
+{% endblock %}

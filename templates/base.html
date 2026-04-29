@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Instagram Clone{% endblock title %}</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-950 text-gray-50">
+  {% include 'includes/header.html' %}
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
+<style>
+  .section-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff10;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #ffffff20;
+  }
+
+  /* buttons */
+  .btn {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:active {
+      opacity: 0.8;
+      scale: .9;
+    }
+  }
+  /* .btn-primary {} */
+  .btn-secondary {
+    background-color: #ffffff10;
+    border-radius: 0.5rem;
+
+  }
+</style>
