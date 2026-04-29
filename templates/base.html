@@ -5,14 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Instagram Clone{% endblock title %}</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
 <body class="bg-gray-950 text-gray-50">
   {% include 'includes/header.html' %}
   {% block content %}
   {% endblock %}
+  {% include 'includes/footer.html' %}
 </body>
-</html>
 <style>
+  :root {
+    --color-gray-300: #94a3b8;
+    --color-red-500: #ef4444;
+    --color-sky-600: #0284c7;
+  }
+
   .section-empty {
     display: flex;
     justify-content: center;
@@ -28,16 +35,47 @@
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    border-radius: 0.5rem;
 
     &:active {
       opacity: 0.8;
       scale: .9;
     }
   }
-  /* .btn-primary {} */
+  .btn-primary {
+    background-color: var(--color-sky-600);
+  }
   .btn-secondary {
     background-color: #ffffff10;
-    border-radius: 0.5rem;
 
   }
+
+  /* forms */
+
+  form {
+    /* width: 100%; */
+
+    label{
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-gray-300);
+    }
+
+    input{
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ffffff20;
+      background-color: #ffffff10;
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-sky-600);
+      }
+    }
+  }
+  .message.error {
+    color: var(--color-red-500);
+  }
 </style>
+</html>

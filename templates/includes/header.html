@@ -2,7 +2,9 @@
 
 <header class="p-4 w-full max-w-2xl mx-auto">
   <div class="flex items-center justify-between">
-    <div class="new-post">
+    {% if request.resolver_match.url_name not in 'login,register' %}
+    {% if user.is_authenticated %}
+      <div class="new-post">
       <span class="cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus" aria-hidden="true">
           <path d="M5 12h14"></path>
@@ -10,11 +12,19 @@
         </svg>
       </span>
     </div>
+    {% else %}
+    <a class="btn btn-primary" href="{% url 'login' %}">Entrar</a>
+    {% endif %}
+    {% else %}
+      <div class=""></div>
+    {% endif %}
+    
     <div class="logo">
       <a href="/" class="pt-1 flex">
         <img class="block w-24 h-auto" src="{% static 'icons/logo.svg' %}" alt="Logo de Instagram">
       </a>
     </div>
+    {% if request.resolver_match.url_name not in 'login,register' %}
     <div class="search">
       <span class="cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true">
@@ -23,5 +33,8 @@
         </svg>
       </span>
     </div>
+    {% else %}
+      <div class=""></div>
+    {% endif %}
   </div>
 </header>

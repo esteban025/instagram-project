@@ -1,0 +1,11 @@
+<footer class="p-4 w-full max-w-2xl mx-auto">
+  <div class="flex justify-between items-center w-full">
+    <p class="text-sm text-gray-400">© 2025 ConquerBlocks. All rights reserved.</p>
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-secondary">Cerrar sesión</button>
+    </form>
+    {% endif%}
+  </div>
+</footer>

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="w-full max-w-2xl mx-auto h-[calc(100vh-100px)] flex items-center flex-col justify-center">
+    <div class="section-empty">
+
+        <form method="POST" novalidate class="space-y-5">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div>
+                <label for="{{ form.username.id_for_label }}">
+                    {{ form.username.label }}
+                </label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label for="{{ form.password.id_for_label }}">
+                    {{ form.password.label }}
+                </label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- Errores generales (credenciales incorrectas, usuario inactivo, etc) -->
+            {% if form.non_field_errors %}
+                <div>
+                    {% for error in form.non_field_errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="block">
+                <button type="submit" class="w-full btn btn-primary">Iniciar sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="flex justify-center">
+        <p class="pt-6 text-gray-400">¿No tienes cuenta? <a class="text-sky-400 font-semibold" href="{% url 'register' %}">Regístrate aquí</a></p>
+    </footer>
+</section>
+{% endblock %}
