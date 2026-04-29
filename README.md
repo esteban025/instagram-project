@@ -41,4 +41,12 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
   - [✔] Creacion de las migraciones **python manage.py makemigrations**
   - [✔] Aplicacion de las migraciones **python manage.py migrate**
 
+---
+
+## Fase 3 - Creacion de vistas
+1. Creacion de vistas
+  - [✔] Creacion de vista general de la aplicacion, sin funcionamiento
+  - [✔] Vista de header y posts
+
+
 
