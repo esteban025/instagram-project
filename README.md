@@ -48,5 +48,14 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
   - [✔] Creacion de vista general de la aplicacion, sin funcionamiento
   - [✔] Vista de header y posts
 
+## Fase 4 - Registro de usuarios y login
 
+1. Registros.
+  - [✔] Creacion de vista de registro
+  - [✔] Creacion de vista de login
+  - [✔] Creacion de vista de logout
 
+2. Configuraciones
+  - [✔] Configuracion de las vistas en urls.py
+  - [✔] Configuracion de las vistas en settings.py
+  
