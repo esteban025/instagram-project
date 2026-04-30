@@ -58,4 +58,8 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
 2. Configuraciones
   - [✔] Configuracion de las vistas en urls.py
   - [✔] Configuracion de las vistas en settings.py
+
+3. Correciones
+  - [✔] Cada vez que registramos un usuario, creamos un perfil con la misma informacion.
+  - [✔] Rectificamos el disenio de fotos de perfil y demas.
   
