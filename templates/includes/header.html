@@ -22,20 +22,13 @@
 
       {% if user.is_authenticated %}
       <div class="avatar">
-
-        {% with avatar=user.profile.get_avatar_data %}
-
-          {% if avatar.is_image %}
-            <img src="{{ avatar.url }}" alt="avatar de usuario" class="size-9 rounded-full flex items-center justify-center object-cover border-2 border-white/10">
+        <a href="{% url 'profile_detail' user.pk %}" class="hover:scale-110">
+          {% if user.profile.profile_picture.url %}
+            <img src="{{ user.profile.profile_picture.url }}" alt="avatar de usuario" class="size-9 rounded-full flex items-center justify-center object-cover border-2 border-white/10 hover:scale-110 transition-all duration-300">
           {% else %}
-            <span  
-              style="background-color: {{ avatar.color}}"
-              class="rounded-full grid place-content-center size-9 border-2 border-white/10 text-white" 
-            >
-              {{ avatar.initial }}
-            </span>
+            <img src="{% static 'images/user.webp' %}" alt="avatar de usuario" class="size-9 rounded-full flex items-center justify-center object-cover border-2 border-white/10 hover:scale-110 transition-all duration-300">
           {% endif %}
-        {% endwith %}
+        </a>
       </div>
       {% endif %}
 
@@ -52,3 +45,9 @@
     </div>
   </div>
 </header>
+
+<style>
+  .avatar-initial {
+    background-color: var(--avatar-bg);
+}
+</style>

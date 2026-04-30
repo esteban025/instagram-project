@@ -10,8 +10,13 @@
       <span>Historias (Próximamente)</span>
     </article>
     <section class="">
-      <div class="flex w-full">
-        {% include 'includes/card_post.html'%}
+      <div class="flex w-full flex-col gap-10">
+        {% for post in posts %}
+          {% include 'includes/card_post.html' with post=post %}
+        {% empty %}
+          <p>No hay post para mostrar</p>
+        {% endfor %}
+
       </div>
     </section>
   </section>
