@@ -1,11 +1,14 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
+
 from .forms import LoginForm, RegisterForm
+from posts.models import Post
 
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html")
+    all_posts = Post.objects.all().order_by("-created_at")
+    return render(request, "home.html", {"posts": all_posts})
 
 
 def login_view(request):
