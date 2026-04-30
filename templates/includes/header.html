@@ -2,7 +2,6 @@
 
 <header class="p-4 w-full max-w-2xl mx-auto">
   <div class="flex items-center justify-between">
-    {% if request.resolver_match.url_name not in 'login,register' %}
     {% if user.is_authenticated %}
       <div class="new-post">
       <span class="cursor-pointer">
@@ -15,16 +14,34 @@
     {% else %}
     <a class="btn btn-primary" href="{% url 'login' %}">Entrar</a>
     {% endif %}
-    {% else %}
-      <div class=""></div>
-    {% endif %}
     
-    <div class="logo">
+    <div class="logo-perfil flex items-center justify-center gap-3">
       <a href="/" class="pt-1 flex">
         <img class="block w-24 h-auto" src="{% static 'icons/logo.svg' %}" alt="Logo de Instagram">
       </a>
+
+      {% if user.is_authenticated %}
+      <div class="avatar">
+
+        {% with avatar=user.profile.get_avatar_data %}
+
+          {% if avatar.is_image %}
+            <img src="{{ avatar.url }}" alt="avatar de usuario" class="size-9 rounded-full flex items-center justify-center object-cover border-2 border-white/10">
+          {% else %}
+            <span  
+              style="background-color: {{ avatar.color}}"
+              class="rounded-full grid place-content-center size-9 border-2 border-white/10 text-white" 
+            >
+              {{ avatar.initial }}
+            </span>
+          {% endif %}
+        {% endwith %}
+      </div>
+      {% endif %}
+
+
     </div>
-    {% if request.resolver_match.url_name not in 'login,register' %}
+
     <div class="search">
       <span class="cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true">
@@ -33,8 +50,5 @@
         </svg>
       </span>
     </div>
-    {% else %}
-      <div class=""></div>
-    {% endif %}
   </div>
 </header>
