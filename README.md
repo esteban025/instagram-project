@@ -63,3 +63,9 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
   - [✔] Cada vez que registramos un usuario, creamos un perfil con la misma informacion.
   - [✔] Rectificamos el disenio de fotos de perfil y demas.
   
+---
+
+## Fase 5
+
+1. Creacion y edicion de perfil por el usuario
+  - [ ] Creamos la vista de editar perfil.
