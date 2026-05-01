@@ -28,7 +28,7 @@ def profile_view(request, pk):
     return render(request, "profile_detail.html", {"user_detail": context})
 
 
-@login_required
+@login_required(login_url='login')
 def follow_user(request, user_id):
     target_user = get_object_or_404(User, id=user_id)
 
@@ -38,7 +38,7 @@ def follow_user(request, user_id):
     return redirect(request.META.get("HTTP_REFERER", "home"))
 
 
-@login_required
+@login_required(login_url='login')
 def unfollow_user(request, user_id):
     target_user = get_object_or_404(User, id=user_id)
 

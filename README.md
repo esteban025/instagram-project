@@ -72,3 +72,5 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
   - [✔] Cargamos los posts pertenecientes a ese perfil.
   - [✔] Corregimos renders de bottones de follow o ver perfil.
   - [✔] Creamos logica para seguir a demas usuarios.
+
+  - [✔] Correcion de enviar login cuando quiere seguir a alguien sin antes haber iniciado session.

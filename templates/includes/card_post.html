@@ -24,7 +24,7 @@
           <button type="submit" class="btn btn-secondary">Seguir</button>
       </form>
     {% else %}
-      {% if post.author.id not in followed_ids %}
+      {% if post.author.id not in followed_ids and post.author.id == user.is_authenticated %}
         <form action="{% url 'follow' post.author.id %}" method="POST">
             {% csrf_token %}
             <button type="submit" class="btn btn-secondary">Seguir</button>
