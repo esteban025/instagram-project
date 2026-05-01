@@ -67,5 +67,8 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
 
 ## Fase 5
 
-1. Creacion y edicion de perfil por el usuario
-  - [ ] Creamos la vista de editar perfil.
+1. Implementacion de Seguimiento entre usuarios
+  - [✔] Creamos la vista de perfil general.
+  - [✔] Cargamos los posts pertenecientes a ese perfil.
+  - [✔] Corregimos renders de bottones de follow o ver perfil.
+  - [✔] Creamos logica para seguir a demas usuarios.
