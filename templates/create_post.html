@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Crear post {% endblock %}
+
+{% block content %}
+  <header class="p-4 w-full max-w-2xl mx-auto"> 
+      <div class="flex items-center justify-center">
+          <div class="logo">
+              <a href="/" class="pt-1 flex">
+                  <img class="block w-24 h-auto" src="{% static 'icons/logo.svg' %}" alt="Logo de Instagram">
+              </a>
+          </div>
+      </div>
+  </header>
+  <section class="p-4 w-full max-w-2xl mx-auto">
+    <form action="{% url 'create_post' request.user.id %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p}}
+      <div class="call flex gap-4 items-center pt-5">
+        <a href="{% url 'profile_detail' request.user.id %}" class="btn btn-secondary w-full block text-center">Cancelar</a>
+        <button type="submit" class="btn btn-primary w-full">Publicar</button>
+      </div>  
+    </form>
+  </section>
+{% endblock %}
+
+

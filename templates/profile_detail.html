@@ -15,8 +15,91 @@
 </header>
 
 <section class="p-4 w-full max-w-2xl mx-auto">
-  <header class="header-perfil">header</header>
-  <div class="body-perfil">posts publicados</div>
+  <header class="header-perfil space-y-5 pb-5 border-b-2 border-white/10">
+    <div class="flex gap-4">
+
+      <!-- perfil -->
+      <div class="image" class="">
+        {% if user_detail.user.profile.profile_picture %}
+          <img src="{{user_detail.user.profile.profile_picture.url}}" alt="avatar de usuario" class="w-24 rounded-full flex items-center justify-center object-cover border-2 border-white/10 aspect-square">
+        {% else %}
+          <img src="{% static 'images/user.webp' %}" alt="avatar de usuario" class="w-24 rounded-full flex items-center justify-center object-cover border-2 border-white/10 aspect-square">
+        {% endif %}
+      </div>
+
+      <div class="info w-full">
+        <p class="pb-2">{{user_detail.user.username}}</p>
+        <article class="flex items-center justify-between">
+          <p>
+            <span>{{user_detail.total_posts}}</span>
+            <span>publicaciones</span>
+          </p>
+          <p>
+            <span>{{user_detail.followers_count}}</span>
+            <span>seguidores</span>
+          </p>
+          <p>
+            <span>{{user_detail.following_count}}</span>
+            <span>siguiendo</span>
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <div class="actions">
+        {% if request.user.is_authenticated %}
+            
+            {% if request.user == user_detail.user %}
+                <!-- CASO 1: Es mi perfil -->
+                 {# url 'edit_profile' #}
+                <a href="#" class="w-full btn btn-secondary flex justify-center">Editar Perfil</a>
+            
+            {% else %}
+                <!-- CASO 2: Es perfil ajeno -->
+                {% if user_detail.is_following %}
+                
+                      <form action="{% url 'unfollow' user_detail.user.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary w-full">Dejar de seguir</button>
+                      </form>
+                {% else %}
+                      <form action="{% url 'follow' user_detail.user.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary w-full">Seguir</button>
+                      </form>
+                {% endif %}
+            {% endif %}
+
+        {% endif %}
+    </div>
+  </header>
+
+  <section class="body-posts pt-10">
+    <div class="flex w-full flex-col gap-10">
+        {% for post in user_detail.posts %}
+          {% include 'includes/card_post.html' with post=post %}
+        {% empty %}
+          <p>No hay post para mostrar</p>
+        {% endfor %}
+
+      </div>
+  </section>
 </section>
+
+<style>
+  .info {
+    article {
+      p {
+        display: flex;
+        flex-direction: column;
+
+        &>span:last-child {
+          color: var(--color-gray-400);
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+</style>
 {% endblock %}
 

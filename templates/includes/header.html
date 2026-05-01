@@ -4,12 +4,12 @@
   <div class="flex items-center justify-between">
     {% if user.is_authenticated %}
       <div class="new-post">
-      <span class="cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus" aria-hidden="true">
-          <path d="M5 12h14"></path>
-          <path d="M12 5v14"></path>
-        </svg>
-      </span>
+        <a href="{% url 'create_post' user.pk %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+        </a>
     </div>
     {% else %}
     <a class="btn btn-primary" href="{% url 'login' %}">Entrar</a>
@@ -23,7 +23,7 @@
       {% if user.is_authenticated %}
       <div class="avatar">
         <a href="{% url 'profile_detail' user.pk %}" class="hover:scale-110">
-          {% if user.profile.profile_picture.url %}
+          {% if user.profile.profile_picture %}
             <img src="{{ user.profile.profile_picture.url }}" alt="avatar de usuario" class="size-9 rounded-full flex items-center justify-center object-cover border-2 border-white/10 hover:scale-110 transition-all duration-300">
           {% else %}
             <img src="{% static 'images/user.webp' %}" alt="avatar de usuario" class="size-9 rounded-full flex items-center justify-center object-cover border-2 border-white/10 hover:scale-110 transition-all duration-300">
