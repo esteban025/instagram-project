@@ -7,11 +7,15 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     image = models.ImageField(upload_to="posts/")
     caption = models.TextField()
-    likes = models.ManyToManyField(User, related_name="liked_posts")
+    likes = models.ManyToManyField(User, related_name="liked_posts", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.author} - {self.created_at.strftime('%Y-%m-%d %H:%M:%S')}"
+
+    # conteo de likes
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         verbose_name = "Post"

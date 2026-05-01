@@ -3,4 +3,6 @@ from . import views
 
 urlpatterns = [
     path("<int:pk>/", views.profile_view, name="profile_detail"),
+    path("follow/<int:user_id>/", views.follow_user, name="follow"),
+    path("unfollow/<int:user_id>/", views.unfollow_user, name="unfollow"),
 ]

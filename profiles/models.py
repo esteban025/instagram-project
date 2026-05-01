@@ -37,7 +37,7 @@ class Follow(models.Model):
     class Meta:
         verbose_name = "Follow"
         verbose_name_plural = "Follows"
-        unique_together = ("follower", "following", "created_at")
+        unique_together = ("follower", "following")
 
     def __str__(self):
         return f"{self.follower} follows {self.following}"

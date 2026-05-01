@@ -8,7 +8,20 @@ from posts.models import Post
 # Create your views here.
 def home(request):
     all_posts = Post.objects.all().order_by("-created_at")
-    return render(request, "home.html", {"posts": all_posts})
+
+    followed_ids = []
+
+    if request.user.is_authenticated:
+        followed_ids = request.user.following.values_list("following_id", flat=True)
+
+    return render(
+        request,
+        "home.html",
+        {
+            "posts": all_posts,
+            "followed_ids": followed_ids,
+        },
+    )
 
 
 def login_view(request):
