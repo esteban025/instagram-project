@@ -3,15 +3,7 @@
 
 
 {% block content %}
-    <header class="p-4 w-full max-w-2xl mx-auto"> 
-        <div class="flex items-center justify-center">
-            <div class="logo">
-                <a href="/" class="pt-1 flex">
-                    <img class="block w-24 h-auto" src="{% static 'icons/logo.svg' %}" alt="Logo de Instagram">
-                </a>
-            </div>
-        </div>
-    </header>
+{% include 'includes/simple_header.html' %}
 
   <section class="max-w-md mx-auto mt-10 p-6 bg-slate-50/10 rounded-lg shadow-md">
   <div class="flex flex-col items-center">

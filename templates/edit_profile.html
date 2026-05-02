@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Editar perfil {% endblock %}
+
+
+{% block content %}
+{% include 'includes/simple_header.html' %}
+    <section class="p-4 w-full max-w-2xl mx-auto">
+        <form action="{% url 'edit_profile' user.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="call flex items-center gap-4 pt-5">
+                <a href="{% url 'profile_detail' user.id %}" class="btn btn-secondary w-full block text-center">Cancelar</a>
+                <button type="submit" class="btn btn-primary w-full">Guardar Cambios</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

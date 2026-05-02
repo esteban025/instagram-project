@@ -24,11 +24,11 @@
           <button type="submit" class="btn btn-secondary">Seguir</button>
       </form>
     {% else %}
-      {% if post.author.id not in followed_ids and post.author.id == user.is_authenticated %}
+      {% if post.author.id != user.id and post.author.id not in followed_ids %}
         <form action="{% url 'follow' post.author.id %}" method="POST">
             {% csrf_token %}
             <button type="submit" class="btn btn-secondary">Seguir</button>
-        </form>
+        </form>        
       {% endif %}
     {% endif %}
   </header>
