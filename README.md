@@ -74,3 +74,8 @@ Poner en practica todo lo aprendido dentro del curso de Django, creacion de mode
   - [✔] Creamos logica para seguir a demas usuarios.
 
   - [✔] Correcion de enviar login cuando quiere seguir a alguien sin antes haber iniciado session.
+
+2. Creando edicion de perfil
+  - [✔] Creacion de vista con la url pk
+  - [✔] Creacion de formulario y urls para el edit
+  - [✔] Comprobamos que funcione correctamente el edit.
