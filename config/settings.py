@@ -98,7 +98,7 @@ LANGUAGE_CODE = "es-ES"
 TIME_ZONE = "UTC"
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
@@ -118,3 +118,9 @@ LOGOUT_REDIRECT_URL = "/login/"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+DATE_INPUT_FORMATS = [
+    '%Y-%m-%d',
+    '%d/%m/%Y', 
+]

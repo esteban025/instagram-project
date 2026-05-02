@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
 from posts.models import Post
-from profiles.models import Follow
+from instagram.forms import EditProfile
+from profiles.models import Follow, Profile
 
 
 # Create your views here.
@@ -45,3 +46,26 @@ def unfollow_user(request, user_id):
     Follow.objects.filter(follower=request.user, following=target_user).delete()
 
     return redirect(request.META.get("HTTP_REFERER", "home"))
+
+@login_required(login_url='login')
+def edit_profile(request, user_id):
+    if request.user.id != user_id:
+        return redirect('home')
+
+    profile = get_object_or_404(Profile, user__id=user_id)
+
+    if request.method == 'POST':
+        form = EditProfile(request.POST, request.FILES, instance=profile)
+        
+        if form.is_valid():
+            profile_form = form.save()
+
+            new_username = form.cleaned_data.get('username')
+            user = profile.user
+            user.username = new_username
+            user.save()
+            return redirect('profile_detail', pk=user_id)
+    else:
+        form = EditProfile(instance=profile)
+    
+    return render(request, 'edit_profile.html', {'form': form})
